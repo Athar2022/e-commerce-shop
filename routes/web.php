@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\StoreController;   
@@ -18,3 +19,6 @@ Route::get('/cart', [StoreController::class, 'cart'])->name('shop.cart');
 Route::get('/about', [StoreController::class, 'about'])->name('shop.about');
 Route::get('/contact', [StoreController::class, 'contact'])->name('shop.contact');
 
+
+//CRUD router
+Route::resource("products", ProductController::class);
