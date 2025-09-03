@@ -1,8 +1,8 @@
 <?php
-use App\Http\Controllers\ProductController;
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\StoreController;   
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
