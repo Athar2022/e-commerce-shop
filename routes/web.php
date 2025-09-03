@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\StoreController;   
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,3 +9,12 @@ Route::get('/', function () {
 });
 
 Route::get('/shop', [ShopController::class, 'index']);
+
+
+Route::get('/', [StoreController::class, 'index'])->name('shop.index');
+Route::get('/products', [StoreController::class, 'index'])->name('shop.products');
+Route::get('/product/{id}', [StoreController::class, 'productDetails'])->name('shop.product');
+Route::get('/cart', [StoreController::class, 'cart'])->name('shop.cart');
+Route::get('/about', [StoreController::class, 'about'])->name('shop.about');
+Route::get('/contact', [StoreController::class, 'contact'])->name('shop.contact');
+
