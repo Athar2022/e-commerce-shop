@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,3 +11,19 @@ Route::get('/', function () {
 });
 
 Route::get('/shop', [ShopController::class, 'index']);
+
+
+Route::get('/', [StoreController::class, 'index'])->name('shop.index');
+Route::get('/products', [StoreController::class, 'index'])->name('shop.products');
+Route::get('/product/{id}', [StoreController::class, 'productDetails'])->name('shop.product');
+Route::get('/cart', [StoreController::class, 'cart'])->name('shop.cart');
+Route::get('/about', [StoreController::class, 'about'])->name('shop.about');
+Route::get('/contact', [StoreController::class, 'contact'])->name('shop.contact');
+
+
+//CRUD router
+Route::resource("products", ProductController::class);
+
+//contact router
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
